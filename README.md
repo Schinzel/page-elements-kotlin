@@ -4,6 +4,30 @@
 This project allows you a low threshold to create a web application in Kotlin.
 It is easy to get started with simple pages while supporting complex, maintainable web applications as you scale.
 
+## Project Structure Update
+
+> **Note**: This project has been restructured into a multi-module Maven project.
+> The modules are located in the `modules` directory.
+
+### Module Structure
+
+1. **modules/template-engine**: Contains the template engine functionality
+   - Located at: `io.schinzel.page_elements.component.template_engine`
+   - Provides template processing and file reading capabilities
+
+2. **modules/main**: Contains all other functionality of the project
+   - Depends on the template-engine module
+   - Contains the web application, components, and sample code
+
+### Building the Project
+
+To build the entire project, run:
+
+```bash
+mvn clean package
+```
+
+This will create a fat/uber jar with all dependencies in the project root using the Maven Shade plugin.
 
 ## Problems to solve
 The problems this project aims to solve are the following.
@@ -39,6 +63,6 @@ reading resource files from the source folder of classes,
 and a file system based routing system you can have a feature based architecture. 
 
 The project consists of two parts:
-- [Web Framework](src/main/kotlin/io/schinzel/page_elements/web/README.md)
-- [Component Framework](src/main/kotlin/io/schinzel/page_elements/component/README.md)
+- Web Framework (now in `modules/main/src/main/kotlin/io/schinzel/page_elements/web/`)
+- Component Framework (now in `modules/main/src/main/kotlin/io/schinzel/page_elements/component/`)
 
